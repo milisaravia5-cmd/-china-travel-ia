@@ -1,0 +1,89 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>China Travel IA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fbf1e2;color:#2a211d}
+.hero{padding:70px 7%;color:white;background:linear-gradient(135deg,#8e171d,#c63b32 55%,#5d1117);min-height:560px}
+.logo{font-weight:bold;letter-spacing:3px}h1{font:700 clamp(48px,8vw,90px)/.95 Georgia,serif;margin:30px 0 20px}
+.hero p{font-size:24px;max-width:760px;line-height:1.4}.route{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.route span{padding:10px 15px;border:1px solid #ffffff77;border-radius:30px}
+.cta{display:inline-block;padding:15px 22px;background:white;color:#a21e24;border-radius:30px;text-decoration:none;font-weight:bold}
+section{max-width:1100px;margin:auto;padding:65px 22px}.k{color:#a21e24;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+h2{font:700 48px Georgia,serif;margin:8px 0 12px}.lead{color:#75665c;font-size:18px;line-height:1.6}
+.faq{width:100%;padding:18px 20px;border:1px solid #e5d4c0;background:#fffaf2;border-radius:14px;margin:5px 0;text-align:left;font-size:16px;display:flex;justify-content:space-between;cursor:pointer;color:#2a211d}
+.answer{display:none;background:#fffaf2;padding:0 20px 18px;margin-bottom:10px;color:#4f433b;line-height:1.6;font-size:16px;border-radius:0 0 14px 14px}.answer.on{display:block}
+.carousel{display:flex;gap:18px;overflow-x:auto;padding:15px 0 25px}.dest-img{width:100%;height:290px;object-fit:cover;display:block;border-radius:18px 18px 0 0;background:#eee;flex-shrink:0}.card{min-width:330px;height:460px;padding:27px;border-radius:25px;color:white;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#c53a35,#68151b)}
+.card:nth-child(2){background:linear-gradient(145deg,#b67d34,#5d3214)}.card:nth-child(3){background:linear-gradient(145deg,#285b7e,#101d38)}.card:nth-child(4){background:linear-gradient(145deg,#398d83,#174a46)}
+.ico{font-size:55px;margin-bottom:auto}.card small{letter-spacing:2px;font-weight:bold}.card h3{font:700 29px Georgia,serif;margin:6px 0}.card p{margin:0;line-height:1.4}
+.photo{position:relative;background-size:cover;background-position:center;overflow:hidden}
+.photo .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.78))}
+.card-content{position:relative;z-index:1}.credits{font-size:11px;color:#8a7a6e;line-height:1.5;margin-top:5px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}.box{background:#fffaf2;border:1px solid #e5d4c0;border-radius:25px;padding:30px}.box h3{font:700 30px Georgia,serif}
+.chatbox{background:#251c18;color:white;border-radius:28px;padding:25px}.chat{height:330px;overflow:auto;background:#fffaf2;border-radius:18px;padding:15px;color:#2a211d}
+.msg{max-width:85%;padding:11px 14px;border-radius:16px;margin:8px 0;line-height:1.45}.bot{background:#eedcc6}.user{background:#a21e24;color:white;margin-left:auto}
+.bar{display:flex;gap:8px;margin-top:12px}input{flex:1;padding:15px;border:0;border-radius:25px;font-size:15px}.bar button{border:0;border-radius:25px;padding:0 20px;background:#d8aa4d;font-weight:bold}
+.note{font-size:12px;color:#cdbeb1;margin-top:10px}footer{padding:30px;text-align:center;color:#75665c;font-size:13px}
+@media(max-width:700px){.cols{grid-template-columns:1fr}.carousel{gap:14px}.card{min-width:86vw;height:470px}.dest-img{height:300px}}
+</style></head><body>
+
+<header class="hero"><div class="logo">CHINA TRAVEL IA · FERIA DE TURISMO</div>
+<h1>Descubrí China<br>con IA</h1>
+<p>Triángulo Dorado Clásico · 9 días para recorrer Beijing, Xi’an, Shanghai y Zhujiajiao.</p>
+<div class="route"><span>🏯 Beijing</span><span>🏺 Xi’an</span><span>🌆 Shanghai</span><span>🚤 Zhujiajiao</span></div>
+<a class="cta" href="#asistente">🤖 Preguntale a nuestro asistente</a></header>
+
+<section><div class="k">Antes de viajar</div><h2>10 preguntas frecuentes</h2>
+<p class="lead">Las dudas que puede tener una persona que está pensando en realizar el circuito. <b>Desplegá o cerrá cada respuesta cuando quieras.</b></p>
+<div><div><button class="faq" onclick="showFaq(0)">¿Qué incluye el circuito de 9 días? <b>＋</b></button><div id="a0" class="answer"></div></div><div><button class="faq" onclick="showFaq(1)">¿Qué ciudades voy a visitar? <b>＋</b></button><div id="a1" class="answer"></div></div><div><button class="faq" onclick="showFaq(2)">¿Qué atractivos están incluidos? <b>＋</b></button><div id="a2" class="answer"></div></div><div><button class="faq" onclick="showFaq(3)">¿Cuál es la mejor época para viajar? <b>＋</b></button><div id="a3" class="answer"></div></div><div><button class="faq" onclick="showFaq(4)">¿Necesito visa para viajar a China? <b>＋</b></button><div id="a4" class="answer"></div></div><div><button class="faq" onclick="showFaq(5)">¿Cómo nos trasladamos entre las ciudades? <b>＋</b></button><div id="a5" class="answer"></div></div><div><button class="faq" onclick="showFaq(6)">¿Dónde nos alojamos? <b>＋</b></button><div id="a6" class="answer"></div></div><div><button class="faq" onclick="showFaq(7)">¿Qué comida puedo probar? <b>＋</b></button><div id="a7" class="answer"></div></div><div><button class="faq" onclick="showFaq(8)">¿Voy a conocer la China antigua y la moderna? <b>＋</b></button><div id="a8" class="answer"></div></div><div><button class="faq" onclick="showFaq(9)">¿Qué tengo que llevar? <b>＋</b></button><div id="a9" class="answer"></div></div></div></section>
+
+<section><div class="k">El recorrido</div><h2>Un viaje, cuatro experiencias</h2>
+<p class="lead">Deslizá para descubrir los destinos principales.</p><div class="carousel">
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20forbidden%20city%2C%20Beijing.jpg" alt="Ciudad Prohibida, Beijing"><small>BEIJING</small><h3>La China imperial</h3><p>Ciudad Prohibida · Gran Muralla · Templo del Cielo · Palacio de Verano</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Terracotta%20army%20xian.jpg" alt="Guerreros de Terracota, Xi'an"><small>XI’AN</small><h3>Historia y Ruta de la Seda</h3><p>Guerreros de Terracota · Pagodas · Barrio Musulmán · Muralla</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Bund%20Shanghai.jpg" alt="Bund, Shanghai"><small>SHANGHAI</small><h3>La China moderna</h3><p>Bund · Nanjing Road · Yuyuan · Perla Oriental</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhujiajiao.jpeg" alt="Zhujiajiao, pueblo de agua"><small>ZHUJIAJIAO</small><h3>Pueblo de agua</h3><p>Canales · puentes de piedra · calles tradicionales</p></article>
+</div></section>
+
+<section><div class="k">Dos caras de China</div><h2>Del imperio a la metrópolis</h2>
+<div class="cols"><div class="box"><div style="font-size:45px">🏯</div><h3>China antigua</h3>
+<p>Dinastías, emperadores, patrimonio y tradiciones: Ciudad Prohibida, Gran Muralla, Templo del Cielo, Guerreros de Terracota, pagodas y murallas históricas.</p></div>
+<div class="box"><div style="font-size:45px">🌆</div><h3>China moderna</h3>
+<p>Shanghai y su paisaje urbano: Bund, Pudong, Torre de la Perla Oriental, Nanjing Road y la convivencia entre patrimonio y modernidad.</p></div></div></section>
+
+<section id="asistente"><div class="k">Interacción</div><h2>🤖 Preguntale a la IA</h2>
+<p class="lead">Escribí una pregunta sobre el circuito y probá el prototipo.</p>
+<div class="chatbox"><div class="chat" id="chat"><div class="msg bot">¡Hola! 👋 Soy el asistente turístico del Triángulo Dorado. Preguntame sobre destinos, historia, dinastías, clima, transporte, gastronomía o atractivos.</div></div>
+<div class="bar"><input id="inp" placeholder="Ej.: ¿Qué dinastía está relacionada con los Guerreros de Terracota?"><button onclick="send()">Enviar</button></div>
+<div class="note">Prototipo para la feria. La versión final puede conectarse a un modelo de IA sin modificar el diseño.</div></div></section>
+
+<footer>Universidad Nacional de Lanús · Licenciatura en Turismo<br><b>Agenda Digital e Inteligencia Artificial para Rediseñar el Turismo</b></footer>
+
+<script>
+const FAQ=[{"q": "¿Qué incluye el circuito de 9 días?", "a": "Dura 9 días y 8 noches y recorre Beijing, Xi’an y Shanghai, con una visita a Zhujiajiao. Incluye los traslados entre ciudades indicados en el itinerario."}, {"q": "¿Qué ciudades voy a visitar?", "a": "Beijing → Xi’an → Shanghai, con una excursión a Zhujiajiao."}, {"q": "¿Qué atractivos están incluidos?", "a": "Tiananmen, Ciudad Prohibida, Templo del Cielo, Palacio de Verano, Gran Muralla de Mutianyu, Guerreros de Terracota, Muralla Antigua de Xi’an, Yuyuan, Nanjing Road, Perla Oriental y Bund, entre otros."}, {"q": "¿Cuál es la mejor época para viajar?", "a": "El trabajo recomienda primavera (abril-mayo) y otoño (septiembre-noviembre), por condiciones favorables para actividades al aire libre."}, {"q": "¿Necesito visa para viajar a China?", "a": "El TP incluye una referencia a la Embajada de China para consultar los requisitos vigentes. Conviene verificar siempre las condiciones antes de viajar."}, {"q": "¿Cómo nos trasladamos entre las ciudades?", "a": "Tren de alta velocidad entre Beijing y Xi’an, y avión entre Xi’an y Shanghai."}, {"q": "¿Dónde nos alojamos?", "a": "5L Hotel Beijing; Grand Noble Hotel en Xi’an; y Sunrise on the Bund Hotel en Shanghai."}, {"q": "¿Qué comida puedo probar?", "a": "La gastronomía forma parte de las modalidades culturales. En Xi’an, el Barrio Musulmán se destaca por sus mercados, calles tradicionales y gastronomía."}, {"q": "¿Voy a conocer la China antigua y la moderna?", "a": "Sí. El TP destaca la combinación de patrimonio histórico y cultural con atractivos de la China moderna."}, {"q": "¿Qué tengo que llevar?", "a": "El trabajo recomienda pasaporte vigente, calzado cómodo, protección solar, seguro y documentación de viaje."}];
+function showFaq(i){
+  const x=document.getElementById("a"+i);
+  const btn=x.previousElementSibling;
+  const isOpen=x.classList.contains("on");
+  if(isOpen){
+    x.classList.remove("on");
+    btn.querySelector("b").textContent="＋";
+  }else{
+    x.textContent=FAQ[i].a;
+    x.classList.add("on");
+    btn.querySelector("b").textContent="−";
+  }
+}
+const rules=[
+[["terracota","qin","qín"],"Los Guerreros de Terracota están relacionados con Qin Shi Huang y la dinastía Qin. Las figuras fueron descubiertas accidentalmente en 1974."],
+[["beijing","pekin"],"En Beijing el circuito visita Tiananmen, la Ciudad Prohibida, el Templo del Cielo, los Hutongs, el Palacio de Verano, la Gran Muralla de Mutianyu y el Parque Olímpico."],
+[["xian","xi’an","xi'an"],"En Xi’an se visitan los Guerreros de Terracota, la Pagoda del Pequeño Ganso Salvaje, el Barrio Musulmán, la Residencia Gao, las Torres del Tambor y la Campana y la Muralla Antigua."],
+[["shanghai"],"En Shanghai el circuito incluye Jardín Yuyuan, Templo del Dios de la Ciudad, Nanjing Road, arquitectura Shikumen, Museo de Historia, Torre de la Perla Oriental y el Bund."],
+[["zhujiajiao","canales"],"Zhujiajiao es una antigua localidad cercana a Shanghai caracterizada por canales, puentes de piedra, calles tradicionales y viviendas junto al agua."],
+[["clima","mejor época","primavera","otoño"],"El TP recomienda primavera (abril-mayo) y otoño (septiembre-noviembre), por condiciones favorables para actividades al aire libre."],
+[["transporte","tren","avión"],"El circuito utiliza tren de alta velocidad entre Beijing y Xi’an y avión entre Xi’an y Shanghai."],
+[["dinastía","dinastías"],"El circuito permite relacionar atractivos con la historia imperial: la Ciudad Prohibida y el Templo del Cielo con la dinastía Ming, y los Guerreros de Terracota con la dinastía Qin."]
+];
+function send(){let i=document.getElementById("inp"),t=i.value.trim();if(!t)return;let a="Puedo ayudarte con Beijing, Xi’an, Shanghai, Zhujiajiao, historia, clima, transporte, gastronomía y atractivos.";let s=t.toLowerCase();for(const r of rules)if(r[0].some(k=>s.includes(k))){a=r[1];break;}document.getElementById("chat").insertAdjacentHTML("beforeend",'<div class="msg user">'+esc(t)+'</div><div class="msg bot">'+esc(a)+'</div>');i.value="";document.getElementById("chat").scrollTop=999999;}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]);}
+document.getElementById("inp").addEventListener("keydown",e=>{if(e.key==="Enter")send();});
+</script></body></html>
