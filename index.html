@@ -1,0 +1,180 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>China Travel IA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#fbf1e2;color:#2a211d}
+.hero{padding:70px 7%;color:white;background:linear-gradient(135deg,#8e171d,#c63b32 55%,#5d1117);min-height:560px}
+.logo{font-weight:bold;letter-spacing:3px}h1{font:700 clamp(48px,8vw,90px)/.95 Georgia,serif;margin:30px 0 20px}
+.hero p{font-size:24px;max-width:760px;line-height:1.4}.route{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.route span{padding:10px 15px;border:1px solid #ffffff77;border-radius:30px}
+.cta{display:inline-block;padding:15px 22px;background:white;color:#a21e24;border-radius:30px;text-decoration:none;font-weight:bold}
+section{max-width:1100px;margin:auto;padding:65px 22px}.k{color:#a21e24;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+h2{font:700 48px Georgia,serif;margin:8px 0 12px}.lead{color:#75665c;font-size:18px;line-height:1.6}
+.faq{width:100%;padding:18px 20px;border:1px solid #e5d4c0;background:#fffaf2;border-radius:14px;margin:5px 0;text-align:left;font-size:16px;display:flex;justify-content:space-between;cursor:pointer;color:#2a211d}
+.answer{display:none;background:#fffaf2;padding:0 20px 18px;margin-bottom:10px;color:#4f433b;line-height:1.6;font-size:16px;border-radius:0 0 14px 14px}.answer.on{display:block}
+.carousel{display:flex;gap:18px;overflow-x:auto;padding:15px 0 25px}.dest-img{width:100%;height:290px;object-fit:cover;display:block;border-radius:18px 18px 0 0;background:#eee;flex-shrink:0}.card{min-width:330px;height:460px;padding:27px;border-radius:25px;color:white;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(145deg,#c53a35,#68151b)}
+.card:nth-child(2){background:linear-gradient(145deg,#b67d34,#5d3214)}.card:nth-child(3){background:linear-gradient(145deg,#285b7e,#101d38)}.card:nth-child(4){background:linear-gradient(145deg,#398d83,#174a46)}
+.ico{font-size:55px;margin-bottom:auto}.card small{letter-spacing:2px;font-weight:bold}.card h3{font:700 29px Georgia,serif;margin:6px 0}.card p{margin:0;line-height:1.4}
+.photo{position:relative;background-size:cover;background-position:center;overflow:hidden}
+.photo .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.78))}
+.card-content{position:relative;z-index:1}.credits{font-size:11px;color:#8a7a6e;line-height:1.5;margin-top:5px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}.box{background:#fffaf2;border:1px solid #e5d4c0;border-radius:25px;padding:30px}.box h3{font:700 30px Georgia,serif}
+.chatbox{background:#251c18;color:white;border-radius:28px;padding:25px}.chat{height:330px;overflow:auto;background:#fffaf2;border-radius:18px;padding:15px;color:#2a211d}
+.msg{max-width:85%;padding:11px 14px;border-radius:16px;margin:8px 0;line-height:1.45}.bot{background:#eedcc6}.user{background:#a21e24;color:white;margin-left:auto}
+.bar{display:flex;gap:8px;margin-top:12px}input{flex:1;padding:15px;border:0;border-radius:25px;font-size:15px}.bar button{border:0;border-radius:25px;padding:0 20px;background:#d8aa4d;font-weight:bold}
+
+.destination-nav{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
+.destination-nav button{border:1px solid #dfcdb7;background:#fffaf2;color:#2a211d;border-radius:999px;padding:12px 18px;font-weight:bold;cursor:pointer}
+.destination-nav button.active{background:#a21e24;color:white;border-color:#a21e24}
+.destination-panel{display:none;background:#fffaf2;border:1px solid #e5d4c0;border-radius:28px;padding:22px;overflow:hidden}
+.destination-panel.active{display:block}
+.destination-head{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center;margin-bottom:25px}
+.destination-head img{width:100%;height:300px;object-fit:cover;border-radius:22px}
+.destination-head h3{font:700 40px Georgia,serif;margin:5px 0 12px}
+.attractions{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.attraction{background:#fff;border:1px solid #eadcca;border-radius:20px;overflow:hidden}
+.attraction img{width:100%;height:190px;object-fit:cover;display:block;background:#eee}
+.attraction div{padding:16px}
+.attraction h4{font:700 24px Georgia,serif;margin:0 0 7px}
+.attraction p{margin:0;color:#665950;line-height:1.5}
+@media(max-width:700px){.destination-head{grid-template-columns:1fr}.destination-head img{height:240px}.destination-head h3{font-size:34px}.attractions{grid-template-columns:1fr}.attraction img{height:210px}}
+
+.note{font-size:12px;color:#cdbeb1;margin-top:10px}footer{padding:30px;text-align:center;color:#75665c;font-size:13px}
+@media(max-width:700px){.cols{grid-template-columns:1fr}.carousel{gap:14px}.card{min-width:86vw;height:470px}.dest-img{height:300px}}
+
+.face-link{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;color:inherit;cursor:pointer;transition:transform .2s,box-shadow .2s}.face-link:hover{transform:translateY(-4px);box-shadow:0 12px 28px #4b2b1a18}.face-cta{margin-top:auto;padding-top:20px;color:#a21e24;font-weight:bold;letter-spacing:.3px}.face-link:nth-child(2) .face-cta{color:#285b7e}
+</style></head><body>
+
+<header class="hero"><div class="logo">CHINA TRAVEL IA · FERIA DE TURISMO</div>
+<h1>Descubrí China<br>con IA</h1>
+<p>Triángulo Dorado Clásico · 9 días para recorrer Beijing, Xi’an, Shanghai y Zhujiajiao.</p>
+<div class="route"><span>🏯 Beijing</span><span>🏺 Xi’an</span><span>🌆 Shanghai</span><span>🚤 Zhujiajiao</span></div>
+<a class="cta" href="#asistente">🤖 Preguntale a nuestro asistente</a></header>
+
+<section><div class="k">Antes de viajar</div><h2>10 preguntas frecuentes</h2>
+<p class="lead">Las dudas que puede tener una persona que está pensando en realizar el circuito. <b>Desplegá o cerrá cada respuesta cuando quieras.</b></p>
+<div><div><button class="faq" onclick="showFaq(0)">¿Qué incluye el paquete “Triángulo Dorado Clásico”? <b>＋</b></button><div id="a0" class="answer"></div></div><div><button class="faq" onclick="showFaq(1)">¿Qué requisitos de ingreso, documentación y recomendaciones necesito para viajar a China? <b>＋</b></button><div id="a1" class="answer"></div></div><div><button class="faq" onclick="showFaq(2)">¿Cómo nos trasladamos entre las ciudades? <b>＋</b></button><div id="a2" class="answer"></div></div><div><button class="faq" onclick="showFaq(3)">¿Qué atractivos turísticos están incluidos? <b>＋</b></button><div id="a3" class="answer"></div></div><div><button class="faq" onclick="showFaq(4)">¿Cuál es la mejor época del año para realizar este viaje? <b>＋</b></button><div id="a4" class="answer"></div></div><div><button class="faq" onclick="showFaq(5)">¿Cómo se paga en China? <b>＋</b></button><div id="a5" class="answer"></div></div><div><button class="faq" onclick="showFaq(6)">¿Cómo funciona la conexión a internet? <b>＋</b></button><div id="a6" class="answer"></div></div><div><button class="faq" onclick="showFaq(7)">¿Dónde nos alojamos? <b>＋</b></button><div id="a7" class="answer"></div></div><div><button class="faq" onclick="showFaq(8)">¿Cuál es el precio del circuito y qué diferencia hay entre las categorías de hotel? <b>＋</b></button><div id="a8" class="answer"></div></div><div><button class="faq" onclick="showFaq(9)">¿El viaje incluye guía de habla hispana y tiempo libre? <b>＋</b></button><div id="a9" class="answer"></div></div></div></section>
+
+<section><div class="k">El recorrido</div><h2>Un viaje, cuatro experiencias</h2>
+<p class="lead">Deslizá para descubrir los destinos principales.</p><div class="carousel">
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20forbidden%20city%2C%20Beijing.jpg" alt="Ciudad Prohibida, Beijing"><small>BEIJING</small><h3>La China imperial</h3><p>Ciudad Prohibida · Gran Muralla · Templo del Cielo · Palacio de Verano</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Terracotta%20army%20xian.jpg" alt="Guerreros de Terracota, Xi'an"><small>XI’AN</small><h3>Historia y Ruta de la Seda</h3><p>Guerreros de Terracota · Pagodas · Barrio Musulmán · Muralla</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Bund%20Shanghai.jpg" alt="Bund, Shanghai"><small>SHANGHAI</small><h3>La China moderna</h3><p>Bund · Nanjing Road · Yuyuan · Perla Oriental</p></article>
+<article class="card"><img onerror="this.style.display='none'" class="dest-img" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhujiajiao.jpeg" alt="Zhujiajiao, pueblo de agua"><small>ZHUJIAJIAO</small><h3>Pueblo de agua</h3><p>Canales · puentes de piedra · calles tradicionales</p></article>
+</div></section>
+
+
+<section id="destinos">
+<div class="k">Entrá al destino</div>
+<h2>Conocé cada lugar antes de viajar</h2>
+<p class="lead">Elegí una ciudad y descubrí los principales puntos que forman parte de la experiencia.</p><p class="photo-credit">Fotografías: Wikimedia Commons. Créditos y licencias en las fuentes de cada imagen.</p>
+
+<div class="destination-nav">
+<button class="active" onclick="showDestination('beijing',this)">🏯 Beijing</button>
+<button onclick="showDestination('xian',this)">🏺 Xi’an</button>
+<button onclick="showDestination('shanghai',this)">🌆 Shanghai</button>
+<button onclick="showDestination('zhujiajiao',this)">🚤 Zhujiajiao</button>
+</div>
+
+<div id="beijing" class="destination-panel active">
+<div class="destination-head">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20forbidden%20city%2C%20Beijing.jpg" alt="Ciudad Prohibida de Beijing">
+<div><div class="k">Días 1, 2 y 3</div><h3>Beijing</h3><p class="lead">La puerta de entrada a la China imperial. Una ciudad donde palacios, templos, jardines y la Gran Muralla cuentan siglos de historia.</p></div>
+</div>
+<div class="attractions">
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20forbidden%20city%2C%20Beijing.jpg" alt="Ciudad Prohibida"><div><h4>Ciudad Prohibida</h4><p>Antiguo complejo imperial de las dinastías Ming y Qing, con palacios, patios y una arquitectura monumental.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Temple%20Of%20Heaven.jpg" alt="Beijing y sus monumentos"><div><h4>Templo del Cielo</h4><p>Uno de los grandes símbolos de la arquitectura imperial, asociado a los rituales de los emperadores.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Summer%20Palace%2C%20Beijing.jpg" alt="Palacio de Verano Beijing"><div><h4>Palacio de Verano</h4><p>Jardines, pabellones y el lago Kunming forman uno de los grandes paisajes históricos de Beijing.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Mutianyu%20Great%20Wall.png" alt="Gran Muralla China"><div><h4>Gran Muralla de Mutianyu</h4><p>Una de las experiencias más impactantes del circuito, entre montañas y antiguas fortificaciones.</p></div></article>
+</div></div>
+
+<div id="xian" class="destination-panel">
+<div class="destination-head">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Terracotta%20army%20xian.jpg" alt="Guerreros de Terracota de Xi'an">
+<div><div class="k">Días 4 y 5</div><h3>Xi’an</h3><p class="lead">Una ciudad clave para comprender la historia de China y su conexión con la antigua Ruta de la Seda.</p></div>
+</div>
+<div class="attractions">
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Terracotta%20army%20xian.jpg" alt="Guerreros de Terracota"><div><h4>Guerreros de Terracota</h4><p>Más de 8.000 figuras vinculadas al mausoleo de Qin Shi Huang, primer emperador de la China unificada.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Small%20Wild%20Goose%20Pagoda.jpg" alt="Pagoda de Xi'an"><div><h4>Pequeña Pagoda del Ganso Salvaje</h4><p>Un testimonio de la época Tang y de la importancia histórica de Xi’an.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Muslim%20Quarter%20Xi%27an%20China.jpg" alt="Barrio Musulmán de Xi'an"><div><h4>Barrio Musulmán</h4><p>Calles, mercados y sabores que reflejan siglos de intercambio cultural asociado a la Ruta de la Seda.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/City%20wall%20of%20Xi%27an%20in%202026.jpg" alt="Muralla de Xi'an"><div><h4>Muralla de Xi’an</h4><p>Una gran estructura defensiva histórica que permite apreciar la relación entre la ciudad antigua y la actual.</p></div></article>
+</div></div>
+
+<div id="shanghai" class="destination-panel">
+<div class="destination-head">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Bund%20Shanghai.jpg" alt="Shanghai y el Bund">
+<div><div class="k">Días 6, 7 y 8</div><h3>Shanghai</h3><p class="lead">La China moderna: rascacielos, paseos junto al Huangpu, jardines clásicos, compras y barrios históricos conviven en una misma ciudad.</p></div>
+</div>
+<div class="attractions">
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Bund%20Shanghai.jpg" alt="El Bund Shanghai"><div><h4>El Bund</h4><p>El gran paseo frente al río Huangpu, con edificios históricos y una vista espectacular hacia Pudong.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Oriental%20Pearl%20Tower%20in%20Shanghai.jpg" alt="Pudong Shanghai"><div><h4>Pudong y Perla Oriental</h4><p>El perfil moderno de Shanghai, con grandes rascacielos y la emblemática Torre de la Perla Oriental.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai%2C%20Yuyuan%20Garden.jpg" alt="Jardín Yuyuan"><div><h4>Jardín Yuyuan</h4><p>Un jardín clásico de la época Ming con pabellones, estanques, rocas y una arquitectura tradicional.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Nanjing%20Road%2C%20Shanghai.jpg" alt="Nanjing Road"><div><h4>Nanjing Road</h4><p>Una de las grandes avenidas comerciales de Shanghai, ideal para caminar y vivir el ritmo de la ciudad.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai%20History%20Museum%20in%20the%20Race%20Club%20.jpeg" alt="Museo de Historia de Shanghai"><div><h4>Museo de Historia de Shanghai</h4><p>Un recorrido por la historia y la transformación de la ciudad a través de sus colecciones.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai%20Qingpu%20-%20Zhujiajiao%20IMG%208266%20Caohe%20Street%20and%20canal%20Lang%20Bridge.jpg" alt="Zhujiajiao"><div><h4>Zhujiajiao</h4><p>Una excursión desde Shanghai para descubrir canales, puentes de piedra y arquitectura tradicional.</p></div></article>
+</div></div>
+
+<div id="zhujiajiao" class="destination-panel">
+<div class="destination-head">
+<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhujiajiao.jpeg" alt="Zhujiajiao">
+<div><div class="k">Día 8</div><h3>Zhujiajiao</h3><p class="lead">Un pueblo de agua tradicional donde canales, puentes y casas históricas crean una experiencia completamente diferente a la gran metrópolis.</p></div>
+</div>
+<div class="attractions">
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai%20Qingpu%20-%20Zhujiajiao%20IMG%208266%20Caohe%20Street%20and%20canal%20Lang%20Bridge.jpg" alt="Canales de Zhujiajiao"><div><h4>Canales</h4><p>La red de canales es el corazón del pueblo y permite recorrerlo desde una perspectiva diferente.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhujiajiao.jpeg" alt="Puentes de Zhujiajiao"><div><h4>Puentes de piedra</h4><p>Puentes históricos conectan las calles y viviendas tradicionales construidas alrededor del agua.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Zhujiajiao%20stone%20bridge.jpg" alt="Calles tradicionales de Zhujiajiao"><div><h4>Calles tradicionales</h4><p>Casas, comercios y rincones históricos permiten conocer una China más tranquila y tradicional.</p></div></article>
+<article class="attraction"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Shanghai%20Qingpu%20-%20Zhujiajiao%20IMG%208169%20Qing%20Dynasty%20Post%20Office%20-%20canal%20post%20boat.jpg" alt="Paseo en barco por Zhujiajiao"><div><h4>Paseo en barco</h4><p>Una de las experiencias recomendadas para disfrutar los canales y observar el pueblo desde el agua.</p></div></article>
+</div></div>
+</section>
+
+<section><div class="k">Dos caras de China</div><h2>Del imperio a la metrópolis</h2>
+<div class="cols"><a class="box face-link" href="china-antigua.html"><div style="font-size:45px">🏯</div><h3>China antigua</h3>
+<p>Dinastías, emperadores, patrimonio y tradiciones: Ciudad Prohibida, Gran Muralla, Templo del Cielo, Guerreros de Terracota, pagodas y murallas históricas.</p><span class="face-cta">Entrar a la experiencia →</span></a>
+<a class="box face-link" href="china-moderna.html"><div style="font-size:45px">🌆</div><h3>China moderna</h3>
+<p>Shanghai y su paisaje urbano: Bund, Pudong, Torre de la Perla Oriental, Nanjing Road y la convivencia entre patrimonio y modernidad.</p><span class="face-cta">Entrar a la experiencia →</span></a></div></section>
+
+<section id="asistente"><div class="k">Interacción</div><h2>🤖 Preguntale a la IA</h2>
+<p class="lead">Escribí una pregunta sobre el circuito y probá el prototipo.</p>
+<div class="chatbox"><div class="chat" id="chat"><div class="msg bot">¡Hola! 👋 Soy el asistente turístico del Triángulo Dorado. Preguntame sobre destinos, historia, dinastías, clima, transporte, gastronomía o atractivos.</div></div>
+<div class="bar"><input id="inp" placeholder="Ej.: ¿Qué dinastía está relacionada con los Guerreros de Terracota?"><button onclick="send()">Enviar</button></div>
+<div class="note">Prototipo para la feria. La versión final puede conectarse a un modelo de IA sin modificar el diseño.</div></div></section>
+
+<footer>Universidad Nacional de Lanús · Licenciatura en Turismo<br><b>Agenda Digital e Inteligencia Artificial para Rediseñar el Turismo</b></footer>
+
+<script>
+
+function showDestination(id,btn){
+  document.querySelectorAll('.destination-panel').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.destination-nav button').forEach(x=>x.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+const FAQ=[{"q": "¿Qué incluye el paquete “Triángulo Dorado Clásico”?", "a": "Alojamiento: 8 noches de hospedaje en hoteles seleccionados de 4 y 5 estrellas.<br>Régimen de comidas: Media Pensión (MAP), que incluye todos los desayunos diarios y los almuerzos de menú típico durante las excursiones.<br>Transportes internos e interurbanos: Pasaje en Tren de Alta Velocidad (Beijing – Xi'an), vuelo doméstico de cabotaje (Xi'an – Shanghai) y traslados en vehículo privado con chofer.<br>Excursiones y entradas: Accesos a los monumentos históricos del programa, incluyendo el teleférico en la Gran Muralla China (Mutianyu), el espectáculo de Teatro de Sombras en Xi'an, el ascenso a la Torre de la Perla Oriental y el paseo en barco en Zhujiajiao.<br>No incluye vuelos para llegar a China ni vuelos de Shanghai a Beijing."}, {"q": "¿Qué requisitos de ingreso, documentación y recomendaciones necesito para viajar a China?", "a": "Documentación: Pasaporte vigente y pasaje aéreo de ida y vuelta confirmado.<br>Visa: No se requiere visado para estadías turísticas de hasta 30 días.<br>Salud: No hay vacunas obligatorias (se recomiendan Hepatitis A, B y Triple Viral). Se sugiere contratar un seguro de asistencia médica internacional."}, {"q": "¿Cómo nos trasladamos entre las ciudades?", "a": "Beijing ➔ Xi'an (1.216 km): En Tren de Alta Velocidad (asiento en segunda clase incluido).<br>Xi'an ➔ Shanghai (1.231 km): En Vuelo de cabotaje interno (clase económica incluida).<br>Dentro de cada ciudad: En transporte privado reservado para el grupo."}, {"q": "¿Qué atractivos turísticos están incluidos?", "a": "Beijing: Plaza de Tiananmen, Ciudad Prohibida (con Salas de los Tesoros y Relojes), Templo del Cielo, paseos por los Hutongs, Palacio de Verano, Gran Muralla China (Mutianyu) y vista exterior al Parque Olímpico (Estadio Nido de Pájaro y Cubo de Agua).<br>Xi'an: Museo de los Guerreros de Terracota (con opción de taller de figuras), Barrio Musulmán, Residencia de la Familia Gao (con Teatro de Sombras), Pagoda de la Pequeña Oca Salvaje, Museo de Xi'an y Muralla Antigua de la Ciudad.<br>Shanghai y Alrededores: Jardín Yuyuan, Templo del Dios de la Ciudad, Templo del Buda de Jade, calle Nanjing Road, barrio Shikumen, paseo por El Bund, Museo de Historia, ascenso a la Torre de la Perla Oriental y excursión al pueblo acuático de Zhujiajiao con paseo en barco."}, {"q": "¿Cuál es la mejor época del año para realizar este viaje?", "a": "La mejor época es durante la primavera (abril a mayo) y el otoño (septiembre a noviembre). En estos períodos el clima es templado y agradable en las tres ciudades, lo que resulta ideal para realizar excursiones y actividades al aire libre sin exponerse a los inviernos fríos o los veranos muy calurosos y húmedos."}, {"q": "¿Cómo se paga en China?", "a": "En China el uso del efectivo prácticamente ha desaparecido y la gran mayoría de las transacciones comerciales se realizan por medio del teléfono celular. Se recomienda descargar la aplicación Alipay antes de viajar y vincularle una tarjeta de crédito o débito internacional. Con esto podrás pagar escaneando códigos QR en restaurantes, comercios, transporte público y mercados sin necesidad de cambiar divisas en efectivo."}, {"q": "¿Cómo funciona la conexión a internet?", "a": "La opción más recomendada es comprar previamente una eSIM internacional que incluya servicio de VPN integrado. Esto te garantizará tener datos activos apenas aterrices en el aeropuerto y navegar sin bloqueos en todas tus aplicaciones y redes sociales."}, {"q": "¿Dónde nos alojamos?", "a": "El circuito utiliza hoteles de categoría 4★ y 5★ cuidadosamente seleccionados por su ubicación y conectividad:<br>Beijing (3 noches): 5L Hotel Beijing (4★) / Xing Zhe Ju (4★) o New Otani Hotel (5★).<br>Xi'an (2 noches): Grand Noble Hotel (4★) / Bell Tower Hotel (4★) o Sofitel Hotel (5★).<br>Shanghai (3 noches): Sunrise on the Bund Hotel (5★) / SSAW Boutique Hotel (4★) o Sheraton Hotel (5★)."}, {"q": "¿Cuál es el precio del circuito y qué diferencia hay entre las categorías de hotel?", "a": "Precio desde: USD $2.143 por persona.<br>Categoría 4 Estrellas (USD $2.143): Incluye alojamiento en hoteles de categoría 4★ estratégicamente ubicados en las zonas comerciales e históricas (5L Hotel / Xing Zhe Ju en Beijing, Grand Noble / Bell Tower en Xi'an, y SSAW Boutique en Shanghai).<br>Categoría 5 Estrellas (USD $2.435): Incluye alojamiento en hoteles de lujo (New Otani en Beijing, Sofitel en Xi'an, y Sunrise on the Bund / Sheraton en Shanghai)."}, {"q": "¿El viaje incluye guía de habla hispana y tiempo libre?", "a": "Guía en español: Todas las visitas programadas, excursiones y traslados indicados en el itinerario cuentan con guías locales expertos de habla hispana que te acompañarán durante las actividades.<br>Tiempo libre: El itinerario está diseñado para combinar las excursiones guiadas con tiempo libre en las tardes o noches (por ejemplo en Sanlitun en Beijing o Nanjing Road en Shanghai) para que puedas recorrer, hacer compras o cenar a tu propio ritmo."}];
+function showFaq(i){
+  const x=document.getElementById("a"+i);
+  const btn=x.previousElementSibling;
+  const isOpen=x.classList.contains("on");
+  if(isOpen){
+    x.classList.remove("on");
+    btn.querySelector("b").textContent="＋";
+  }else{
+    x.textContent=FAQ[i].a;
+    x.classList.add("on");
+    btn.querySelector("b").textContent="−";
+  }
+}
+const rules=[
+[["terracota","qin","qín"],"Los Guerreros de Terracota están relacionados con Qin Shi Huang y la dinastía Qin. Las figuras fueron descubiertas accidentalmente en 1974."],
+[["beijing","pekin"],"En Beijing el circuito visita Tiananmen, la Ciudad Prohibida, el Templo del Cielo, los Hutongs, el Palacio de Verano, la Gran Muralla de Mutianyu y el Parque Olímpico."],
+[["xian","xi’an","xi'an"],"En Xi’an se visitan los Guerreros de Terracota, la Pagoda del Pequeño Ganso Salvaje, el Barrio Musulmán, la Residencia Gao, las Torres del Tambor y la Campana y la Muralla Antigua."],
+[["shanghai"],"En Shanghai el circuito incluye Jardín Yuyuan, Templo del Dios de la Ciudad, Nanjing Road, arquitectura Shikumen, Museo de Historia, Torre de la Perla Oriental y el Bund."],
+[["zhujiajiao","canales"],"Zhujiajiao es una antigua localidad cercana a Shanghai caracterizada por canales, puentes de piedra, calles tradicionales y viviendas junto al agua."],
+[["clima","mejor época","primavera","otoño"],"El TP recomienda primavera (abril-mayo) y otoño (septiembre-noviembre), por condiciones favorables para actividades al aire libre."],
+[["transporte","tren","avión"],"El circuito utiliza tren de alta velocidad entre Beijing y Xi’an y avión entre Xi’an y Shanghai."],
+[["dinastía","dinastías"],"El circuito permite relacionar atractivos con la historia imperial: la Ciudad Prohibida y el Templo del Cielo con la dinastía Ming, y los Guerreros de Terracota con la dinastía Qin."]
+];
+function send(){let i=document.getElementById("inp"),t=i.value.trim();if(!t)return;let a="Puedo ayudarte con Beijing, Xi’an, Shanghai, Zhujiajiao, historia, clima, transporte, gastronomía y atractivos.";let s=t.toLowerCase();for(const r of rules)if(r[0].some(k=>s.includes(k))){a=r[1];break;}document.getElementById("chat").insertAdjacentHTML("beforeend",'<div class="msg user">'+esc(t)+'</div><div class="msg bot">'+esc(a)+'</div>');i.value="";document.getElementById("chat").scrollTop=999999;}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+document.getElementById("inp").addEventListener("keydown",e=>{if(e.key==="Enter")send();});
+</script></body></html>
